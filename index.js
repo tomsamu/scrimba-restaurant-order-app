@@ -1,7 +1,9 @@
 import menuItems from "./data.js";
 
-// Render menu items
+// Keep a running tally on the added orders in this array
+let currentOrder = [];
 
+// Render menu items
 function renderMenuItems() {
   const menuHtml = document.querySelector("#menu");
 
@@ -27,9 +29,22 @@ function renderMenuItems() {
 }
 renderMenuItems()
 
+//Add order
 let addBtns = document.querySelectorAll('.menu-itemorder-btn');
 addBtns.forEach((btn) => {
   btn.addEventListener('click', function (e) {
-    console.log(e.target.dataset.order)
+    currentOrder.push(menuItems.find(item => item.name === e.target.dataset.order));
+    console.log(currentOrder);
   });
 });
+
+if (currentOrder > 0) {
+  renderCheckout();
+}
+
+// Render checkout
+function renderCheckout() {
+  const checkoutHtml = document.querySelector('#checkout');
+}
+
+
