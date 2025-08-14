@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Smythe', sans-serif;
+    width: 600px;
+    font-size: 16px;
+    border: 1px solid black;
+};
+
+h1 {
+    font-size: 39px;
+}
+
+h2 {
+    font-size: 1.375em;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+header {
+    background-image: url('images/hamburger-cover-image.jpg');
+    background-position: center right;
+    width: 100%;
+    height: 167px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    
+}
+
+.heading-text {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 0;
+}
+
+
+/* MENU ITEMS CSS */
+#menu {
+    display: flex;
+    flex-direction: column;
+    margin: 0 46px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    height: 140px;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.menu-item-symbol {
+    font-size: 78px;
+}
+
+.menu-item-description {
+    margin-left: 46px;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-description > * {
+    margin: 3px 0;
+}
+
+.menu-itemorder-btn {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #DEDEDE;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 1.5em;
+    color: #3C3C3C;
+}
+
+.menu-item-ingredients {
+    color: #8B8B8B;
+}
+
+.menu-itemorder-btn:hover {
+    cursor: pointer;
+    background-color: #3c3c3c;
+    color: #dedede;
+}
+
+/* Checkout section CSS */
+#checkout {
+    margin: 0 46px;
+    list-style: none;
+}
+
+#checkout h2 {
+    text-align: center;
+}
+
+.checkout-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+.checkout-list > button {
+    border: none;
+    font-family: 'Verdana', sans-serif;
+    background: none;
+    color: #BBBBBB;
+    font-size: 12px;
+    margin-left: 5px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.checkout-item-price {
+    margin-left: auto;
+    font-size: 20px;
+}
+
+.checkout-total {
+    display: flex;
+    border-top: 2px solid black;
+    margin-top: 18px;
+}
+
+.checkout-total-price {
+    margin-left: auto;
+}
+
+.checkout-submit-btn {
+    width: 100%;
+    height: 60px;
+    color: white;
+    background: #16DB99;
+    border: none;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}

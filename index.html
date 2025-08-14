@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <!-- CSS stylesheet import -->
+       <link rel="stylesheet" href="index.css">
+
+       <!-- Font import -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+        <title>Jimmy's Diner</title>
+
+    </head>
+    <body>
+        <div class="container">
+            <header class="header" aria-label="A photo of a hamburger">
+                <div class="heading-text">
+                    <h1>Jimmy's Diner</h1>
+                    <h2>The best burgers and pizzas in town</h2>
+                </div>
+            </header>
+            <section id="menu"></section>
+            <section id="checkout">
+                <h2>Your order</h2>
+
+                <!-- BELOW: Sample list items -->
+                <li class="checkout-list">
+                    <h2>Pizza</h2>
+                    <button>remove</button>
+                    <p class="checkout-item-price">€12</p>
+                </li>
+
+                <li class="checkout-list">
+                    <h2>Pizza</h2>
+                    <button>remove</button>
+                    <p class="checkout-item-price">€12</p>
+                </li>
+                <!-- ABOVE: Sample list items -->
+                
+                <div class="checkout-total">
+                    <h2>Total price:</h2>
+                    <h2 class="checkout-total-price">$24</h2>
+                </div>
+
+                <button class="checkout-submit-btn">Complete Order</button>
+            </section>
+
+        </div>
+	    <script src="index.js" type="module"></script>
+    </body>
+</html>
+
