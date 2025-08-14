@@ -17,7 +17,7 @@ function renderMenuItems() {
                 )}</p>
                 <h3 class="menu-item-price">$${menuItem.price}</h3>
             </div>
-            <button class="menu-itemorder-btn">
+            <button class="menu-itemorder-btn" data-order="${menuItem.name}">
                 +
             </button>
         </div>
@@ -27,6 +27,9 @@ function renderMenuItems() {
 }
 renderMenuItems()
 
-function renderCheckout() {
-    
-}
+let addBtns = document.querySelectorAll('.menu-itemorder-btn');
+addBtns.forEach((btn) => {
+  btn.addEventListener('click', function (e) {
+    console.log(e.target.dataset.order)
+  });
+});
