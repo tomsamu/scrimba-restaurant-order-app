@@ -98,6 +98,7 @@ header {
 #checkout {
     margin: 0 46px;
     list-style: none;
+    display: none;
 }
 
 #checkout h2 {
@@ -105,13 +106,17 @@ header {
 }
 
 .checkout-list {
+    padding-left: 0;
+}
+
+.checkout-list-item {
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 0;
 }
 
-.checkout-list > button {
+.checkout-list-item > button {
     border: none;
     font-family: 'Verdana', sans-serif;
     background: none;

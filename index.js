@@ -1,6 +1,6 @@
 import menuItems from "./data.js";
 
-// Keep a running tally on the added orders in this array
+// Keep a running tally on the selected orders in this array
 let currentOrder = [];
 
 // Render menu items
@@ -30,21 +30,41 @@ function renderMenuItems() {
 renderMenuItems()
 
 //Add order
+// MAKE INTO SEPARATE FUNCTION (EVENT LISTENER)
 let addBtns = document.querySelectorAll('.menu-itemorder-btn');
 addBtns.forEach((btn) => {
   btn.addEventListener('click', function (e) {
     currentOrder.push(menuItems.find(item => item.name === e.target.dataset.order));
     console.log(currentOrder);
+    renderCheckout()
   });
 });
+
+
+// Render checkout
+function renderCheckout() {
+  const checkoutSectionHtml = document.querySelector('#checkout');
+  checkoutSectionHtml.style.display = 'block';
+  const checkoutListFieldHtml = document.querySelector('.checkout-list');
+  
+
+  checkoutListFieldHtml.innerHTML = currentOrder.map(item => {
+    return `
+      <li class="checkout-list-item">
+        <h2>${item.name}</h2>
+        <button>remove</button>
+        <p class="checkout-item-price">€${item.price}</p>
+      </li>`
+  }).join("");
+
+  // Print out total sum of order
+  const checkoutTotalSum = currentOrder.reduce((init, acc) => init + acc.price, 0)
+  const checkoutTotalPriceHtml = document.querySelector(".checkout-total-price");
+  checkoutTotalPriceHtml.textContent = `$${checkoutTotalSum}`;
+
+}
+
 
 if (currentOrder > 0) {
   renderCheckout();
 }
-
-// Render checkout
-function renderCheckout() {
-  const checkoutHtml = document.querySelector('#checkout');
-}
-
-
