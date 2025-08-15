@@ -31,7 +31,16 @@
 
                 <button class="checkout-submit-btn">Complete Order</button>
             </section>
-
+            
+            <section id="payment-modal">
+                <h2>Enter card details</h2>
+                <form id="payment-modal-form">
+                    <input type="text" name="fullName" id="fullName" placeholder="Enter your name" required>
+                    <input type="tel" id="card-number" name="card-number" placeholder="Enter card number" required>
+                    <input type="tel" id="cvv-number" name="cvv-number" placeholder="Enter CVV" maxlength="3" required>
+                    <button type="submit">Pay</button>
+                </form>
+            </section>
         </div>
 	    <script src="index.js" type="module"></script>
     </body>
