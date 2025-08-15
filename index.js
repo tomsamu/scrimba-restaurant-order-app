@@ -27,43 +27,56 @@ function renderMenuItems() {
     })
     .join("");
 }
-renderMenuItems()
+renderMenuItems();
 
-//Add order
-// MAKE INTO SEPARATE FUNCTION (EVENT LISTENER)
-let addBtns = document.querySelectorAll('.menu-itemorder-btn');
+// Add order
+let addBtns = document.querySelectorAll(".menu-itemorder-btn");
 addBtns.forEach((btn) => {
-  btn.addEventListener('click', function (e) {
-    currentOrder.push(menuItems.find(item => item.name === e.target.dataset.order));
-    console.log(currentOrder);
-    renderCheckout()
+  btn.addEventListener("click", function (e) {
+    currentOrder.push(
+      menuItems.find((item) => item.name === e.target.dataset.order)
+    );
+    renderCheckout();
   });
 });
 
-
 // Render checkout
 function renderCheckout() {
-  const checkoutSectionHtml = document.querySelector('#checkout');
-  checkoutSectionHtml.style.display = 'block';
-  const checkoutListFieldHtml = document.querySelector('.checkout-list');
-  
+  const checkoutSectionHtml = document.querySelector("#checkout");
+  checkoutSectionHtml.style.display = "block";
+  const checkoutListFieldHtml = document.querySelector(".checkout-list");
 
-  checkoutListFieldHtml.innerHTML = currentOrder.map(item => {
-    return `
+  checkoutListFieldHtml.innerHTML = currentOrder
+    .map((item, idx) => {
+      return `
       <li class="checkout-list-item">
         <h2>${item.name}</h2>
-        <button>remove</button>
+        <button class="remove-btn" data-index="${idx}">remove</button>
         <p class="checkout-item-price">€${item.price}</p>
-      </li>`
-  }).join("");
+      </li>`;
+    })
+    .join("");
 
   // Print out total sum of order
-  const checkoutTotalSum = currentOrder.reduce((init, acc) => init + acc.price, 0)
-  const checkoutTotalPriceHtml = document.querySelector(".checkout-total-price");
+  const checkoutTotalSum = currentOrder.reduce(
+    (init, acc) => init + acc.price,
+    0
+  );
+  const checkoutTotalPriceHtml = document.querySelector(
+    ".checkout-total-price"
+  );
   checkoutTotalPriceHtml.textContent = `$${checkoutTotalSum}`;
 
+  // REMOVE ORDER BUTTONS
+  const removeBtns = document.querySelectorAll(".remove-btn");
+  removeBtns.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      const idx = e.target.dataset.index;
+      currentOrder.splice(idx, 1);
+      renderCheckout();
+    });
+  });
 }
-
 
 if (currentOrder > 0) {
   renderCheckout();
