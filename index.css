@@ -157,7 +157,7 @@ header {
 /* Payment modal */
 
 #payment-modal {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     position: absolute;

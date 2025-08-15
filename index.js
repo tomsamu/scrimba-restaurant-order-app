@@ -3,6 +3,7 @@ import menuItems from "./data.js";
 // Keep a running tally on the selected orders in this array
 let currentOrder = [];
 
+
 // Render menu items
 function renderMenuItems() {
   const menuHtml = document.querySelector("#menu");
@@ -39,6 +40,12 @@ addBtns.forEach((btn) => {
     renderCheckout();
   });
 });
+
+// Complete order
+const completeOrderBtn = document.querySelector('.checkout-submit-btn');
+completeOrderBtn.addEventListener('click', function(){
+  document.getElementById('payment-modal').style.display = 'flex';
+})
 
 // Render checkout
 function renderCheckout() {
