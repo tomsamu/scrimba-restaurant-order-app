@@ -1,10 +1,13 @@
 import menuItems from "./data.js";
+const checkoutSectionHtml = document.querySelector("#checkout");
+const paymentModal = document.getElementById('payment-modal');
 
 // Keep a running tally on the selected orders in this array
 let currentOrder = [];
 
 
 // Render menu items
+/* Menu items are dynamically rendered from a data object (data.js) as soon as the page loads. */
 function renderMenuItems() {
   const menuHtml = document.querySelector("#menu");
 
@@ -31,6 +34,8 @@ function renderMenuItems() {
 renderMenuItems();
 
 // Add order
+/* When user clicks the "add" button on a menu item,
+it pushes the corresponding menu item object into the currentOrder-array */
 let addBtns = document.querySelectorAll(".menu-itemorder-btn");
 addBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
@@ -42,14 +47,46 @@ addBtns.forEach((btn) => {
 });
 
 // Complete order
+/* When a user clicks the "complete order", a payment modal gets displayed. */
 const completeOrderBtn = document.querySelector('.checkout-submit-btn');
 completeOrderBtn.addEventListener('click', function(){
-  document.getElementById('payment-modal').style.display = 'flex';
+  paymentModal.style.display = 'flex';
 })
+
+//// Payment and confirmation
+
+const data = {};
+
+const paymentForm = document.querySelector('#payment-modal-form');
+paymentForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  //capture form data
+  const formData = new FormData(paymentForm);
+  formData.forEach((value, key) => {
+    data[key] = value;
+  })
+  console.log(data);
+  // lägg in här
+  renderConfirmation()
+})
+
+// Render confirmation
+
+function renderConfirmation(){
+  const confirmationSection = document.querySelector('#confirmation');
+  const confirmationMessage = document.querySelector('#confirmation-message');
+  
+  checkoutSectionHtml.style.display = 'none';
+  paymentModal.style.display = 'none';
+  confirmationSection.style.display = 'flex';
+  confirmationMessage.innerText = `Thanks ${data.fullName}. Your order is on it's way!`
+}
+
 
 // Render checkout
 function renderCheckout() {
-  const checkoutSectionHtml = document.querySelector("#checkout");
+  
   checkoutSectionHtml.style.display = "block";
   const checkoutListFieldHtml = document.querySelector(".checkout-list");
 

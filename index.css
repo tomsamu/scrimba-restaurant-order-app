@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Smythe', sans-serif;
@@ -191,4 +191,14 @@ header {
     border: none;
     height: 40px;
     cursor: pointer;
-};
+}
+
+#confirmation {
+    display: none;
+    background-color: #ECFDF5;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    margin: 15px auto;
+    color: #065F46;
+}
